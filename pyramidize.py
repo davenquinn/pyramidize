@@ -18,6 +18,9 @@ extensions = ('.jpg','.png')
 @click.option('--copy/--no-copy','-c',default=False)
 @click.option('--verbose','-v',is_flag=True, default=False)
 def cli(indir,outdir,copy=False, verbose=False):
+    """
+    Change files from GMapCatcher format into classic z/x/y format
+    """
 
     # Set the function we will use on files
     op = copyfile if copy else move
@@ -29,7 +32,6 @@ def cli(indir,outdir,copy=False, verbose=False):
 
     dl = len(indir.split("/"))
 
-    # Change files from GMapCatcher format into classic z/x/y format
     # Tiles start in top-left presumably
     for root, subfolders, files in os.walk(indir):
 
@@ -61,3 +63,6 @@ def cli(indir,outdir,copy=False, verbose=False):
 
             if verbose: click.echo(*paths)
             op(*paths)
+
+if __name__ == '__main__':
+    cli()
