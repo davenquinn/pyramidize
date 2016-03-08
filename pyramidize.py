@@ -15,9 +15,9 @@ extensions = ('.jpg','.png')
 @click.command()
 @click.argument('indir', type=click.Path(exists=True))
 @click.argument('outdir',type=click.Path())
-@click.option('--copy/--no-copy','-c',default=False, help='Copy files instead of moving')
+@click.option('--copy/--move',default=True, help='Move files instead of copying')
 @click.option('--verbose','-v',is_flag=True, default=False, help='Verbosity of commands')
-def cli(indir,outdir,copy=False, verbose=False):
+def cli(indir,outdir,copy=True, verbose=False):
     """
     Change files from GMapCatcher format into classic z/x/y format
     for importing into MBTiles, etc.
