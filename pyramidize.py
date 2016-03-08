@@ -12,12 +12,12 @@ def zoom(z):
     z = -(z+2)+19
     return str(z)
 
+extensions = ('.jpg','.png')
+
 try:
     os.mkdir(outdir)
 except OSError as err:
     pass
-
-stupid = lambda x: x == ".DS_Store"
 
 dl = len(indir.split("/"))
 
@@ -25,9 +25,7 @@ dl = len(indir.split("/"))
 # Tiles start in top-left presumably
 for root, subfolders, files in os.walk(indir):
 
-    stupid_files = [f for f in files if stupid(f)]
-    for f in stupid_files:
-        os.remove(os.path.join(root,f))
+    files = [f for f in files if f.endswith(extensions)]
 
     if len(files) == 0: continue
     r = root.split("/")[dl:]
