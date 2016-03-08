@@ -4,10 +4,7 @@ setup(
     name='pyramidize',
     version='0.1',
     py_modules=['pyramidize'],
-    install_requires=[
-        'click',
-        'sqlalchemy',
-        'psycopg2'],
+    install_requires=['click'],
     entry_points='''
         [console_scripts]
         pyramidize=pyramidize:cli
