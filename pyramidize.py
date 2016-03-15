@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+#-*- coding: utf8 -*-
 
 import os
 import errno
@@ -62,7 +63,7 @@ def cli(indir,outdir,copy=True, verbose=False):
                 os.path.join(root,fn),
                 os.path.join(nd,str(y)+ext))
 
-            if verbose: click.echo(*paths)
+            if verbose: click.echo(" → ".join(paths))
             op(*paths)
 
 if __name__ == '__main__':
